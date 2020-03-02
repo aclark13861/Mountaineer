@@ -16,5 +16,5 @@ In the future I plan to
 * improve upon the map feature
 * improve user interactions
 
-![Image Description](Mountainner_new.jpg)
-![Image Description](Mountaineer_idx.jpg)
+![Image Description](./images/Mountainner_new.jpg)
+![Image Description](./images/Mountaineer_idx.jpg)
