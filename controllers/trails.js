@@ -5,7 +5,10 @@ module.exports = {
     create,
     new: newTrail,
     addToTrails,
-    show
+    show,
+    delReview,
+    update,
+    edit
 };
 
 function index(req, res) {
@@ -26,9 +29,8 @@ function create(req, res) {
     trail.save(function(err) {
         if (err) return res.redirect('/trails/new');
         console.log('newtrail:', trail);
-        res.redirect(`/trails/${trail._id}`, {
-            user: req.user
-        });
+        console.log(req.user);
+        res.redirect(`/trails/${trail._id}`);
     })
 //    Trail.create(req.body, function(err, trail) {
 //        res.redirect(`/trails/${trail._id}`);
@@ -61,7 +63,37 @@ function show(req, res) {
          console.log('trailsss', trail);
         res.render('trails/show', {
             user: req.user,
-            trail
+            trail,
+            review: trail.reviews
         });
     });
+}
+
+function delReview(req, res, next) {
+    Trail.findOne({'reviews._id': req.params.id}, function(err, trail) {
+        console.log(trail)
+        trail.reviews.id(req.params.id).remove();
+        console.log('working');
+        trail.save(function(err) {
+            res.redirect(`/trails/${trail._id}`);
+        })
+    });
+}
+
+function update(req, res) {
+    console.log(req.body)
+    Trail.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err, trail) {
+        console.log('UPDATED TRAIL:', trail)
+        res.redirect('/trails');
+    });
+}
+
+function edit(req, res) {
+    Trail.findById(req.params.id, function(err, trail) {
+        res.render('trails/edit', {
+            user: req.user,
+            trail,
+            idx: req.params.id
+        });
+    })
 }

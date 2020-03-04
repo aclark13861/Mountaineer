@@ -11,12 +11,12 @@
         <div style="font-size: 25px;"><%= trail.rating %></div><br>
         <div style="text-decoration: underline;font-size: 30px;">Trail description: </div>
         <div style="font-size: 25px;"><%= trail.content %></div><br>
-
+        <a href="/trails/<%= trail._id %>/edit">Edit Trail</a>
     </section>
 <br><br>
 <section id="reviewz">
     <h3 style="text-decoration: underline;font-size: 25px;">Reviews</h3>
-    <form id="add-review-form" method="POST" action="/trails<%= trail._id %>/reviews">
+    <form id="add-review-form" method="POST" action="/trails/<%= trail._id %>/reviews">
         <label style="display: block;font-size: larger;">Review:</label>
         <textarea style="height:150px;width:250px;border: 2px solid black;" name="content"></textarea>
         <input style="display:block;margin-left:390px;font-size: larger;" type="submit" value="Add Review">
@@ -34,7 +34,9 @@
             <tr>
                 <td><%= t.createdAt.toLocaleDateString() %></td>
                 <td><%= t.content %></td>
-
+                <td><form action="/trails/<%= t._id %>?_method=DELETE" method="POST" class="secondary-content">
+                    <button type="submit" class="btn-small red-text">X</button>
+                  </form></td>
             </tr>
            <% }); %>
            <tr>

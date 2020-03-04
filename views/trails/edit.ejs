@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+<body>
+    <h1>Edit Trail</h1>
+    <form action="/trails/<%= idx %>?_method=PUT" method="POST">
+        <label>Trail Name:</label>
+      <input type="text" name="name" value="<%= trail.name %>">
+      <label>Miles:</label>
+      <input type="number" name="miles" value="<%= trail.miles %>">
+      <label>Bike Friendly:</label>
+      <input type="checkbox" name="bikeFriendly" <%= trail.bikeFriendly ? 'Yes' : 'No' %>>
+      <label>Content:</label>
+      <textarea name="content" value="<%= trail.content %>"></textarea>
+      <button type="submit">Save Todo</button>
+    </form>
+  </body>
+  </html>
