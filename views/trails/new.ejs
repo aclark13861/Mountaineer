@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+    </select>
+    </p>
+    <form id="add-trail-form" action="/trails" method="POST">
+        <h2 style="text-decoration: underline;">New Trail</h2>
+        <label>Trail Name:</label>
+        <input style="border:2px solid black" type="text" name="name">
+        <label style="margin-left: 15px;">Bike Friendly:</label>
+        <input type="checkbox" name="bikeFriendly" checked>
+        <label style="margin-left: 15px;">Miles:</label>
+        <input style="border: 2px solid black" type="text" name="miles">
+        <label style="margin-left: 15px;">Rating:</label>
+        <select name="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select><br>
+        <label style="display: block;" class="descript">Trail Description:</label>
+        <textarea style="height:200px;width:400px;font-size: 14pt;border:2px solid black;text-align: center;" class="descript" name="content"></textarea>
+        <input style="font-size:large;display: block;margin-left: 500px;" class="descript" type="submit" value="Add Trail">
+    </form>
+
+    

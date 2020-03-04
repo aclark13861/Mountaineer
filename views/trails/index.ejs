@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<body>
+    <table id="table-center">
+        <thead>
+            <tr class="feat-names">
+                <th style="text-decoration: underline;font-size: 30px;">Name</th>
+                <th style="text-decoration: underline;font-size: 30px;">Miles</th>
+                <th style="text-decoration: underline;font-size: 30px;">Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% trails.forEach(function(t) { %>
+                <tr class="trail-feats">
+                    <td style="font-size: 25px;"><%= t.name %></td>
+                    <td style="font-size: 25px;"><%= t.miles %></td>
+                    <td style="font-size: 25px;"><%= t.rating %></td>
+                    <td style="font-size: 25px;"><a href="/trails/<%= t._id %>">Details</a></td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
