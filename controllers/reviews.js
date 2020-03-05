@@ -1,8 +1,7 @@
 const Trail = require('../models/trail');
 
 module.exports = {
-    create,
-    delReview
+    create
 };
 
 function create(req, res) {
@@ -11,15 +10,5 @@ function create(req, res) {
         trail.save(function(err) {
             res.redirect(`/trails/${trail._id}`
         )});
-    });
-}
-
-function delReview(req, res, next) {
-    Trail.findByIdAndRemove({'review._id': req.params.id}, function(err, trail) {
-        console.log(trail)
-        trail.reviews.id(req.params.id).remove();
-        trail.save(function(err) {
-            res.redirect(`/trails`);
-        })
     });
 }

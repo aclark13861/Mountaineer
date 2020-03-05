@@ -10,11 +10,9 @@
 <h1 class="Title">Mountaineer</h1>
   <div class="topnav">
     <ul>
-      <li><a href="/users/new">ADD USER</a></li>
-      <li><a href="/users">ALL USERS</a></li>
       <li><a href="/trails/new">ADD TRAIL</a></li>
       <li><a href="/trails">ALL TRAILS</a></li>
-      <li><% if (user) { %>
+      <li style="float: right;"><% if (user) { %>
         <a href="/logout"><i class="material-icons left"></i>Log Out</a>
       <% } else { %>
         <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>

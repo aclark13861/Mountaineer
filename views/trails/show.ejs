@@ -11,7 +11,12 @@
         <div style="font-size: 25px;"><%= trail.rating %></div><br>
         <div style="text-decoration: underline;font-size: 30px;">Trail description: </div>
         <div style="font-size: 25px;"><%= trail.content %></div><br>
-        <a href="/trails/<%= trail._id %>/edit">Edit Trail</a>
+        <div>Created By:</div>
+        <div><%= user.name %></div><br>
+        <a style="color: whitesmoke" href="/trails/<%= trail._id %>/edit">Edit Trail</a>
+        <td><form action="/trails/<%= trail._id %>?_method=DELETE" method="POST" class="secondary-content">
+            <button style="font-size: large; margin-top: 10px;" type="submit" class="btn-small red-text">Delete Trail</button>
+          </form></td>
     </section>
 <br><br>
 <section id="reviewz">
@@ -25,8 +30,9 @@
     <table>
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Review</th>
+                <th style="text-decoration: underline;">Date</th>
+                <th style="text-decoration: underline;">Review</th>
+                <th style="text-decoration: underline;">Created By</th>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +40,8 @@
             <tr>
                 <td><%= t.createdAt.toLocaleDateString() %></td>
                 <td><%= t.content %></td>
-                <td><form action="/trails/<%= t._id %>?_method=DELETE" method="POST" class="secondary-content">
+                <td><%= user.name %></td>
+                <td><form action="/trails/<%= t._id %>/review?_method=DELETE" method="POST" class="secondary-content">
                     <button type="submit" class="btn-small red-text">X</button>
                   </form></td>
             </tr>

@@ -8,12 +8,10 @@ module.exports = {
 
 function index(req, res, next) {
     let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
-    console.log('go');
     User.find(modelQuery)
     .exec(function(err, users) {
         if (err) return next(err);
     User.find({}, function(err, users) {
-        console.log('this',req.user)
         res.render('users/index', {
             users,
             user: req.user,
