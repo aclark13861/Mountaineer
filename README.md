@@ -1,6 +1,7 @@
 # Mountaineer
 
 **Welcome to Mountaineer**
+This app allows users to track trails and share trails with friends!
 
 To create this applicaiton I utilized:
 * Javascript
