@@ -15,7 +15,8 @@ My [Trello](https://trello.com/b/r4wnDIoc/project-2) board for my app
 
 **Next Steps**
 In the future I plan to
-* improve upon the map feature
+* use a weather api
+* create a map feature
 * improve user interactions
 
 ![Image Description](./images/Mountaineer_new.jpg)
