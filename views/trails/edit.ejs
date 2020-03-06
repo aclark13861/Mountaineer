@@ -1,15 +1,15 @@
 <%- include('../partials/header') %>
 <body>
-    <h1>Edit Trail</h1>
-    <form action="/trails/<%= idx %>?_method=PUT" method="POST">
-        <label>Trail Name:</label>
+    <h1 style="text-decoration: underline;font-size: 30px;color: white;">Edit Trail</h1>
+    <form id="add-trail-form" action="/trails/<%= idx %>?_method=PUT" method="POST">
+        <label style="margin-left: 15px;text-decoration: underline;font-size: 30px;color: white;">Trail Name:</label>
       <input type="text" name="name" value="<%= trail.name %>">
-      <label>Miles:</label>
+      <label style="margin-left: 15px;text-decoration: underline;font-size: 30px;color: white;">Miles:</label>
       <input type="number" name="miles" value="<%= trail.miles %>">
-      <label>Bike Friendly:</label>
+      <label style="margin-left: 15px;text-decoration: underline;font-size: 30px;color: white;">Bike Friendly:</label>
       <input type="checkbox" name="bikeFriendly" <%= trail.bikeFriendly ? 'Yes' : 'No' %>>
-      <label>Content:</label>
-      <textarea type="text" name="content" value="<%= trail.content %>"></textarea>
+      <label style=" display:block;text-decoration: underline;font-size: 30px;color: white;margin-left: 15px;" class="descript">Content:</label>
+      <textarea style="height:200px;width:400px;font-size: 14pt;border:2px solid black;text-align: center;" type="text" name="content" value="<%= trail.content %>"><%= trail.content %></textarea>
       <button type="submit">Save Todo</button>
     </form>
   </body>
