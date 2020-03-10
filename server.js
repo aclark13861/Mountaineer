@@ -10,60 +10,12 @@ var mongoose = require('mongoose');
 
 var request = require('request');
 
-// var citySchema = new mongoose.Schema({
-//   name: String
-// });
-
-// var cityModel = mongoose.model('City', citySchema);
-
-// var Denver = new cityModel({name: 'Denver'});
-// Denver.save()
-
-// async function getWeather(cities) {
-//   var weather_data = []
-//   for (var city_obj of cities) {
-//     var city = city_obj.name;
-//     var url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4d9e712dd8becce5acc4a38753cdbb26`
-
-//     var response_body = await request(url);
-//     var weather_json = JSON.parse(response_body)
-//     var weather = {
-//       city: city,
-//       temperature: Math.round(weather_json.main.temp),
-//       description: weather_json.weather[0].description,
-//       icon: weather_json.weather[0].icon
-//     };
-//     weather_data.push(weather);
-//   }
-//   return weather_data;
-// }
-
-
-// var city = 'Denver'
-
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var trailsRouter = require('./routes/trails');
 var reviewsRouter = require('./routes/reviews');
 
 var app = express();
-
-// app.get('/users', function(req, res) {
-//   cityModel.find({}, function(err, cities) {
-    
-//     getWeather(cities).then(function(results) {
-//       var weather_data = {weather_data: results};
-//       res.render('users/index', {
-//         user: req.user,
-//         weather_data
-//     });
-//   });
-  //request(url, function(err, response, body) {
-    //weather_json = JSON.parse(body);
-    //console.log(weather_json)
-// });
-// });
 
 require('dotenv').config();
 require('./config/database');

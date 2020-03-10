@@ -25,6 +25,9 @@ function create(req, res) {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     }
+    console.log(req.user)
+    req.body.user = req.user.id
+    console.log(req.body)
     const trail = new Trail(req.body);
     trail.save(function(err) {
         if (err) return res.redirect('/trails/new');
@@ -56,8 +59,8 @@ function addToTrails(req, res) {
 }
 
 function show(req, res) {
-    Trail.findById(req.params.id,
-     function(err, trail) {
+    Trail.findById(req.params.id).populate('user').exec(function(err, trail) {
+        console.log(trail);
         res.render('trails/show', {
             user: req.user,
             trail,

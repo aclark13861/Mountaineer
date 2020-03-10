@@ -27,6 +27,10 @@ const trailSchema = new Schema({
         min:1,
         max: 5
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
 
     content: String,
 
