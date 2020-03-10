@@ -42,7 +42,7 @@
             <tr>
                 <td><%= t.createdAt.toLocaleDateString() %></td>
                 <td><%= t.content %></td>
-                <td><%= t.user %></td> 
+                <td><%= user.name %></td> 
                 <!-- proifile id -->
                 <td><form action="/trails/<%= t._id %>/review?_method=DELETE" method="POST" class="secondary-content">
                     <button type="submit" class="btn-small red-text">X</button>
